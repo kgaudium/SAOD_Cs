@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+
+    <ItemGroup>
+      <Content Include="obj\Debug\net6.0\apphost.exe" />
+      <Content Include="obj\Debug\net6.0\refint\SAOD_con.dll" />
+      <Content Include="obj\Debug\net6.0\ref\SAOD_con.dll" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.AssemblyInfoInputs.cache" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.assets.cache" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.csproj.AssemblyReference.cache" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.csproj.CoreCompileInputs.cache" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.csproj.FileListAbsolute.txt" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.dll" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.GeneratedMSBuildEditorConfig.editorconfig" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.genruntimeconfig.cache" />
+      <Content Include="obj\Debug\net6.0\SAOD_con.pdb" />
+      <Content Include="obj\project.assets.json" />
+      <Content Include="obj\project.nuget.cache" />
+      <Content Include="obj\project.packagespec.json" />
+      <Content Include="obj\rider.project.model.nuget.info" />
+      <Content Include="obj\rider.project.restore.info" />
+      <Content Include="obj\SAOD_con.csproj.nuget.dgspec.json" />
+      <Content Include="obj\SAOD_con.csproj.nuget.g.props" />
+      <Content Include="obj\SAOD_con.csproj.nuget.g.targets" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+      <Compile Include="obj\Debug\net6.0\SAOD_con.AssemblyInfo.cs" />
+      <Compile Include="obj\Debug\net6.0\SAOD_con.GlobalUsings.g.cs" />
+    </ItemGroup>
+
+</Project>
