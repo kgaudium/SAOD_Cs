@@ -15,25 +15,24 @@ internal class MyListItem<T>
     }
     
     /// <summary>
-    /// Compares only values of MyListItem. To fully compare two items use Equals instead
+    /// Compares all fields of item
     /// </summary>
     public static bool operator ==(MyListItem<T>? a, MyListItem<T>? b)
     {
-        if (a is null || b is null) return false;
-        return EqualityComparer<T>.Default.Equals(a.Value, b.Value);
-    }
+        return a is null ? a is null & b is null : a.Equals(b);
+
+    } 
     
     /// <summary>
-    /// Compares only values of MyListItem. To fully compare two items use Equals instead
+    /// Compares all fields of item
     /// </summary>
     public static bool operator !=(MyListItem<T>? a, MyListItem<T>? b)
     {
-        if (a is null || b is null) return false;
-        return !(EqualityComparer<T>.Default.Equals(a.Value, b.Value));
+        return !(a == b);
     }
 
     /// <summary>
-    /// Compares all fields of item. If you want to compare only Value use operator == or get Value value
+    /// Compares all fields of item
     /// </summary>
     public override bool Equals(object? obj)
     {
@@ -41,7 +40,7 @@ internal class MyListItem<T>
     }
     
     /// <summary>
-    /// Compares all fields of item. If you want to compare only Value use operator == or get Value value
+    /// Compares all fields of item
     /// </summary>
     internal bool Equals(MyListItem<T>? other)
     {

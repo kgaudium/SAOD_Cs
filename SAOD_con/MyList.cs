@@ -11,7 +11,7 @@ public class MyList<T> : IEnumerable<T>
     {
     }
 
-    public MyList(ICollection<T> collection)
+    public MyList(IEnumerable<T> collection)
     {
         foreach (var item in collection) Add(item);
     }
@@ -54,19 +54,55 @@ public class MyList<T> : IEnumerable<T>
         }
         else
         {
-            var tmp = new MyListItem<T>(Last, null, value);
-            Last.Next = tmp;
-            Last = tmp;
+            var temp = new MyListItem<T>(Last, null, value);
+            Last.Next = temp;
+            Last = temp;
         }
     }
 
-    public void Remove(int index)
+    public void RemoveByIndex(int index)
     {
         var prev = GetItem(index - 1);
         var next = GetItem(index + 1);
 
         prev.Next = next;
         next.Previous = prev;
+    }
+
+    public void Remove(T item)
+    {
+        if (item == null) throw new ArgumentNullException(paramName:nameof(item));
+        //if (First == null) throw new ArgumentException($"{item} not in List");
+        
+        for (var temp = First; temp is not null; temp = temp.Next)
+        {
+            if (EqualityComparer<T>.Default.Equals(temp.Value, item))
+            {
+                if (temp.Previous != null)
+                {
+                    temp.Previous.Next = temp.Next;
+                }
+
+                if (temp.Next != null)
+                {
+                    temp.Next.Previous = temp.Previous;
+                }
+
+                if (temp == First)
+                {
+                    First = temp.Next;
+                }
+
+                if (temp == Last)
+                {
+                    Last = temp.Previous;
+                }
+
+                return;
+            }
+        }
+        
+        throw new ArgumentException($"{item} not in List");
     }
 
     private MyListItem<T> GetItem(int index)
@@ -140,7 +176,7 @@ public class MyList<T> : IEnumerable<T>
         if (First is null) return false;
         if (EqualityComparer<T>.Default.Equals(First.Value, item)) return true;
 
-        for (var temp = First; temp != Last; temp = temp.Next)
+        for (var temp = First; temp is not null; temp = temp.Next)
         {
             if (EqualityComparer<T>.Default.Equals(temp.Value, item)) return true;
         }

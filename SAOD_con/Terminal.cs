@@ -37,6 +37,12 @@ public static class Terminal
                         Console.WriteLine(">>> " + list.Get(int.Parse(input_arr[1])).ToString());
                         break;
                     
+                    case "removeIndex":
+                    case "RemoveIndex":
+                        list.RemoveByIndex(int.Parse(input_arr[1]));
+                        Console.WriteLine(">>> " + list.ToString());
+                        break;
+                    
                     case "remove":
                     case "Remove":
                         list.Remove(int.Parse(input_arr[1]));
@@ -59,6 +65,11 @@ public static class Terminal
                     case "hash":
                     case "Hash":
                         Console.WriteLine(">>> " + list.GetHashCode());
+                        break;
+                    
+                    case "contains":
+                    case "Contains":
+                        Console.WriteLine(">>> " + list.Contains(int.Parse(input_arr[1])));
                         break;
                     
                     default:
